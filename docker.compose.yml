@@ -49,7 +49,7 @@ services:
       #-----------------------------------------------
 
       # Automatic Certificate Management Environment (ACME) used for HTTPS (has to get attached to a router or whole entrypoint)
-      - "--certificatesResolvers.myresolvername.acme.email=your@email.com"
+      - "--certificatesresolvers.myresolvername.acme.email=your@email.com"
       - "--certificatesresolvers.myresolvername.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.myresolvername.acme.tlschallenge=true"
       # Staging server. Uncomment line below when testing configuration, so it does not
