@@ -32,7 +32,7 @@ services:
       # Services need to explictely be enabled for docker discovery in their labels section
       - "--providers.docker.exposedbydefault=false"
 
-      # Traefik listens on ports 80, 443 and 444
+      # Traefik listens on ports 80, 443 and 4444
       - "--entryPoints.web.address=:80"
       - "--entryPoints.websecure.address=:443"
       # (Port 4444 will be used for the Traefik dashboard)
@@ -40,11 +40,13 @@ services:
 
       # Automatically redirect ALL HTTP requests on port 80 to HTTPS on port 443
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entrypoint.scheme=https" #-----------------------------------------------
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      #-----------------------------------------------
       # Automatically redirect ALL HTTP requests on port 4444 to HTTPS on same port (4444)
       # (entrypoint named dashboard has port 4444 declared above)
       - "--entrypoints.dashboard.http.redirections.entrypoint.to=dashboard"
-      - "--entrypoints.dashboard.http.redirections.entrypoint.scheme=https" #-----------------------------------------------
+      - "--entrypoints.dashboard.http.redirections.entrypoint.scheme=https"
+      #-----------------------------------------------
 
       # Automatic Certificate Management Environment (ACME) used for HTTPS (has to get attached to a router or whole entrypoint)
       - "--certificatesResolvers.myresolvername.acme.email=your@email.com"
